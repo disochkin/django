@@ -29,13 +29,10 @@ def bus_stations(request):
     page = request.GET.get('page', 1)
     page_content = paginator.page(page)
     prev_page, next_page = None, None
-    print(page_content.next_page_number)
     if page_content.has_previous():
         prev_page = reverse('bus_stations') + '?' + urllib.parse.urlencode({'page': page_content.previous_page_number()})
     if page_content.has_next():
         next_page = reverse('bus_stations') + '?' + urllib.parse.urlencode({'page': page_content.next_page_number()})
-    print(page_content.next_page_number)
-    print(index(request))
     return render_to_response('index.html', context={
          'bus_stations': page_content,
          'current_page': page_content.number,

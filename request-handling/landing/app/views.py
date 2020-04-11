@@ -27,7 +27,7 @@ def landing(request):
     counter_show[landing_type] += 1
     if landing_type == 'original':
         return render_to_response('landing.html')
-    else:
+    if landing_type == 'test':
         return render_to_response('landing_alternate.html')
 
 
