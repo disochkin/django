@@ -17,7 +17,21 @@
       <div class="row">
         <h1 class="col s12">Инфляция в России</h1>
         <div class="col s12 m8">
-        
+          <table border="1">
+             {%for column_name in header%}
+             <th>{{column_name}}</th>
+             {%endfor%}
+            {%for current_row in payload%}
+            <tr>
+             {%for row_item in current_row%}
+
+            <td bgcolor={{row_item.1}}>{{row_item.0}}</td>
+             {%endfor%}
+            </tr>
+              {%endfor%}
+
+
+          </table>
         <!-- Ваша логика -->
 
         </div>
